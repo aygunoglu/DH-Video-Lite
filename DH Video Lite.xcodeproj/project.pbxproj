@@ -3,27 +3,63 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274EAFC2381630970AD15F85 /* Pods_DH_Video_Lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B01F28A52CF3D51550FE10D /* Pods_DH_Video_Lite.framework */; };
+		BF03670C26DD015E005FB17F /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF03670A26DD015E005FB17F /* DescriptionCell.xib */; };
+		BF03670D26DD015E005FB17F /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03670B26DD015E005FB17F /* DescriptionCell.swift */; };
+		BF03671026DD0306005FB17F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03670E26DD0306005FB17F /* TitleCell.swift */; };
+		BF03671126DD0306005FB17F /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF03670F26DD0306005FB17F /* TitleCell.xib */; };
+		BF03671526DD397D005FB17F /* DateDownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03671426DD397D005FB17F /* DateDownloadCell.swift */; };
+		BF449F6B26DE4DFE0015AA56 /* DownloadPresentationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */; };
+		BF449F6D26DE4E420015AA56 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF449F6C26DE4E420015AA56 /* OverlayView.xib */; };
+		BF449F6F26DE4F4C0015AA56 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF449F6E26DE4F4C0015AA56 /* OverlayView.swift */; };
+		BF6C784126D7A8E400A6413F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6C784026D7A8E400A6413F /* Constants.swift */; };
 		BF6F3F4B26D5066700574CC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F4A26D5066700574CC8 /* AppDelegate.swift */; };
 		BF6F3F4D26D5066700574CC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F4C26D5066700574CC8 /* SceneDelegate.swift */; };
-		BF6F3F4F26D5066700574CC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F4E26D5066700574CC8 /* ViewController.swift */; };
 		BF6F3F5226D5066700574CC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F3F5026D5066700574CC8 /* Main.storyboard */; };
 		BF6F3F5426D5066900574CC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6F3F5326D5066900574CC8 /* Assets.xcassets */; };
 		BF6F3F5726D5066900574CC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F3F5526D5066900574CC8 /* LaunchScreen.storyboard */; };
+		BF6F3F6426D5081800574CC8 /* VideoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6326D5081800574CC8 /* VideoListVC.swift */; };
+		BF6F3F6626D50A2F00574CC8 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6526D50A2F00574CC8 /* UIView+Ext.swift */; };
+		BF6F3F6826D50F4900574CC8 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6726D50F4900574CC8 /* VideoCell.swift */; };
+		BF6F3F6A26D5193C00574CC8 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6926D5193C00574CC8 /* Video.swift */; };
+		BFA1D2C726DA6BB100432FBD /* VideoDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */; };
+		BFF17BB426DC41F500B274B1 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF17BB326DC41F500B274B1 /* VideoPlayer.swift */; };
+		BFF5483626D67025004E1723 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5483526D67025004E1723 /* Service.swift */; };
+		BFF5483826D69742004E1723 /* VideoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5483726D69742004E1723 /* VideoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B01F28A52CF3D51550FE10D /* Pods_DH_Video_Lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DH_Video_Lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D5BFF460262283E9819387 /* Pods-DH Video Lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DH Video Lite.release.xcconfig"; path = "Target Support Files/Pods-DH Video Lite/Pods-DH Video Lite.release.xcconfig"; sourceTree = "<group>"; };
+		5C9C281DA87CDBB18818956F /* Pods-DH Video Lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DH Video Lite.debug.xcconfig"; path = "Target Support Files/Pods-DH Video Lite/Pods-DH Video Lite.debug.xcconfig"; sourceTree = "<group>"; };
+		BF03670A26DD015E005FB17F /* DescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		BF03670B26DD015E005FB17F /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		BF03670E26DD0306005FB17F /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		BF03670F26DD0306005FB17F /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		BF03671426DD397D005FB17F /* DateDownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDownloadCell.swift; sourceTree = "<group>"; };
+		BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPresentationVC.swift; sourceTree = "<group>"; };
+		BF449F6C26DE4E420015AA56 /* OverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		BF449F6E26DE4F4C0015AA56 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		BF6C784026D7A8E400A6413F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF6F3F4726D5066700574CC8 /* DH Video Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DH Video Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6F3F4A26D5066700574CC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF6F3F4C26D5066700574CC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF6F3F4E26D5066700574CC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF6F3F5126D5066700574CC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF6F3F5326D5066900574CC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6F3F5626D5066900574CC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF6F3F5826D5066900574CC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF6F3F6326D5081800574CC8 /* VideoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListVC.swift; sourceTree = "<group>"; };
+		BF6F3F6526D50A2F00574CC8 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		BF6F3F6726D50F4900574CC8 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		BF6F3F6926D5193C00574CC8 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsVC.swift; sourceTree = "<group>"; };
+		BFF17BB326DC41F500B274B1 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		BFF5483526D67025004E1723 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		BFF5483726D69742004E1723 /* VideoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +67,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274EAFC2381630970AD15F85 /* Pods_DH_Video_Lite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04BEF40A7A97D43A8104A654 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B01F28A52CF3D51550FE10D /* Pods_DH_Video_Lite.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E3A937ACBD7B7658AB0EF5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C9C281DA87CDBB18818956F /* Pods-DH Video Lite.debug.xcconfig */,
+				31D5BFF460262283E9819387 /* Pods-DH Video Lite.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF6F3F3E26D5066700574CC8 = {
 			isa = PBXGroup;
 			children = (
 				BF6F3F4926D5066700574CC8 /* DH Video Lite */,
 				BF6F3F4826D5066700574CC8 /* Products */,
+				8E3A937ACBD7B7658AB0EF5C /* Pods */,
+				04BEF40A7A97D43A8104A654 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +112,79 @@
 		BF6F3F4926D5066700574CC8 /* DH Video Lite */ = {
 			isa = PBXGroup;
 			children = (
+				BF6F3F5E26D5072E00574CC8 /* Model */,
+				BF6F3F5F26D5073800574CC8 /* View */,
+				BFA1D2C826DA8F9100432FBD /* Controller */,
+				BF6F3F6026D5074500574CC8 /* ViewModel */,
+				BF6F3F6126D5075200574CC8 /* Service */,
+				BF6F3F6226D5079600574CC8 /* Helpers */,
 				BF6F3F4A26D5066700574CC8 /* AppDelegate.swift */,
 				BF6F3F4C26D5066700574CC8 /* SceneDelegate.swift */,
-				BF6F3F4E26D5066700574CC8 /* ViewController.swift */,
 				BF6F3F5026D5066700574CC8 /* Main.storyboard */,
 				BF6F3F5326D5066900574CC8 /* Assets.xcassets */,
 				BF6F3F5526D5066900574CC8 /* LaunchScreen.storyboard */,
 				BF6F3F5826D5066900574CC8 /* Info.plist */,
 			);
 			path = "DH Video Lite";
+			sourceTree = "<group>";
+		};
+		BF6F3F5E26D5072E00574CC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF6F3F6926D5193C00574CC8 /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF6F3F5F26D5073800574CC8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF6F3F6726D50F4900574CC8 /* VideoCell.swift */,
+				BF03670B26DD015E005FB17F /* DescriptionCell.swift */,
+				BF03670A26DD015E005FB17F /* DescriptionCell.xib */,
+				BF03670E26DD0306005FB17F /* TitleCell.swift */,
+				BF03670F26DD0306005FB17F /* TitleCell.xib */,
+				BF03671426DD397D005FB17F /* DateDownloadCell.swift */,
+				BF449F6C26DE4E420015AA56 /* OverlayView.xib */,
+				BF449F6E26DE4F4C0015AA56 /* OverlayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF6F3F6026D5074500574CC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5483726D69742004E1723 /* VideoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BF6F3F6126D5075200574CC8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BFF5483526D67025004E1723 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BF6F3F6226D5079600574CC8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BF6F3F6526D50A2F00574CC8 /* UIView+Ext.swift */,
+				BF6C784026D7A8E400A6413F /* Constants.swift */,
+				BFF17BB326DC41F500B274B1 /* VideoPlayer.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BFA1D2C826DA8F9100432FBD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */,
+				BF6F3F6326D5081800574CC8 /* VideoListVC.swift */,
+				BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +194,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF6F3F5B26D5066900574CC8 /* Build configuration list for PBXNativeTarget "DH Video Lite" */;
 			buildPhases = (
+				8E0DF0D32C2D6434E00D60E6 /* [CP] Check Pods Manifest.lock */,
 				BF6F3F4326D5066700574CC8 /* Sources */,
 				BF6F3F4426D5066700574CC8 /* Frameworks */,
 				BF6F3F4526D5066700574CC8 /* Resources */,
+				572BC27E8CEC6C9DB4EFA49E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,22 +246,80 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF03670C26DD015E005FB17F /* DescriptionCell.xib in Resources */,
+				BF449F6D26DE4E420015AA56 /* OverlayView.xib in Resources */,
 				BF6F3F5726D5066900574CC8 /* LaunchScreen.storyboard in Resources */,
 				BF6F3F5426D5066900574CC8 /* Assets.xcassets in Resources */,
 				BF6F3F5226D5066700574CC8 /* Main.storyboard in Resources */,
+				BF03671126DD0306005FB17F /* TitleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		572BC27E8CEC6C9DB4EFA49E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DH Video Lite/Pods-DH Video Lite-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DH Video Lite/Pods-DH Video Lite-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DH Video Lite/Pods-DH Video Lite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E0DF0D32C2D6434E00D60E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DH Video Lite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF6F3F4326D5066700574CC8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF6F3F4F26D5066700574CC8 /* ViewController.swift in Sources */,
+				BF6F3F6A26D5193C00574CC8 /* Video.swift in Sources */,
+				BF03670D26DD015E005FB17F /* DescriptionCell.swift in Sources */,
+				BFA1D2C726DA6BB100432FBD /* VideoDetailsVC.swift in Sources */,
+				BF03671026DD0306005FB17F /* TitleCell.swift in Sources */,
+				BFF5483626D67025004E1723 /* Service.swift in Sources */,
+				BFF5483826D69742004E1723 /* VideoListViewModel.swift in Sources */,
+				BF6F3F6826D50F4900574CC8 /* VideoCell.swift in Sources */,
+				BF6F3F6626D50A2F00574CC8 /* UIView+Ext.swift in Sources */,
+				BF6F3F6426D5081800574CC8 /* VideoListVC.swift in Sources */,
+				BF449F6F26DE4F4C0015AA56 /* OverlayView.swift in Sources */,
 				BF6F3F4B26D5066700574CC8 /* AppDelegate.swift in Sources */,
 				BF6F3F4D26D5066700574CC8 /* SceneDelegate.swift in Sources */,
+				BF449F6B26DE4DFE0015AA56 /* DownloadPresentationVC.swift in Sources */,
+				BFF17BB426DC41F500B274B1 /* VideoPlayer.swift in Sources */,
+				BF6C784126D7A8E400A6413F /* Constants.swift in Sources */,
+				BF03671526DD397D005FB17F /* DateDownloadCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +463,7 @@
 		};
 		BF6F3F5C26D5066900574CC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C9C281DA87CDBB18818956F /* Pods-DH Video Lite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +483,7 @@
 		};
 		BF6F3F5D26D5066900574CC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31D5BFF460262283E9819387 /* Pods-DH Video Lite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
