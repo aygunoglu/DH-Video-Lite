@@ -86,6 +86,10 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
         controller.getShortContent = videoListViewModel.videos[indexPath.row].shortContent
         controller.getDate = videoListViewModel.videos[indexPath.row].createDateWellFormed
         controller.getCategory = videoListViewModel.videos[indexPath.row].category.name
+        controller.getMp3URL = videoListViewModel.videos[indexPath.row].videos[2].value
+        controller.getSDURL = videoListViewModel.videos[indexPath.row].videos[3].value
+        controller.getHDURL = videoListViewModel.videos[indexPath.row].videos[4].value
+        controller.getFHDURL = videoListViewModel.videos[indexPath.row].videos[5].value
         navigationController?.pushViewController(controller, animated: true)
     }
     

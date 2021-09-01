@@ -14,27 +14,77 @@ class VideoPlayerView: UIView {
     private var isPlaying = false
     private var player: AVPlayer?
     private var playerLayer = AVPlayerLayer()
+    private var hdExists = false
+    private var fhdExists = false
+    private var sdExists = false
+    private var mp3Exists = false
     
-    private let sdURL = "https://h265.donanimhaber.com/honormgx15.mp4"
-    private let hdURL = "https://h265.donanimhaber.com/honormgx15_hd.mp4"
-    private let mp3URL = "https://stream-audio.donanimhaber.com/honormgx15.mp3"
-    private let fhdURL = "https://h265.donanimhaber.com/honormgx15_fhd.mp4"
+    private var sdURL: String = ""
+    private var hdURL: String = ""
+    private var mp3URL: String = ""
+    private var fhdURL: String = ""
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
-
-        setupPlayerView()
-        setupPlayerLayout()
-        timeObserverSetup()
-
     }
     
-    private func setupPlayerView() {
+    public func addSD(sd: String) {
+        sdURL = sd
+    }
+    
+    public func addHD(hd: String) {
+        hdURL = hd
+    }
+    
+    public func addFHD(fhd: String) {
+        fhdURL = fhd
+    }
+    
+    public func addMP3(mp3: String) {
+        mp3URL = mp3
+    }
+    
+    public func initializePlayer( ) {
+        if hdURL != "" {
+            hdExists = true
+        }
+        if sdURL != "" {
+            sdExists = true
+        }
+        if mp3URL != "" {
+            mp3Exists = true
+        }
+        if fhdURL != "" {
+            fhdExists = true
+        }
+        
+        if hdExists {
+            setupPlayerView(url: hdURL)
+            setupPlayerLayout()
+            timeObserverSetup()
+        }else if sdExists {
+            setupPlayerView(url: sdURL)
+            setupPlayerLayout()
+            timeObserverSetup()
+        }else if fhdExists {
+            setupPlayerView(url: fhdURL)
+            setupPlayerLayout()
+            timeObserverSetup()
+        }else if mp3Exists {
+            setupPlayerView(url: mp3URL)
+            setupPlayerLayout()
+            timeObserverSetup()
+        }else {
+            setupPlayerView(url: "https://h265.donanimhaber.com/snapchat2306rev3_hd.mp4")
+        }
+    }
+    
+    private func setupPlayerView(url: String) {
 
-        if let url = NSURL(string: hdURL) {
-            player = AVPlayer(url: url as URL)
+        if let defaultURL = URL(string: url) {
+            player = AVPlayer(url: defaultURL)
             
             playerLayer = AVPlayerLayer(player: player)
             self.layer.addSublayer(playerLayer)
@@ -484,18 +534,18 @@ extension VideoPlayerView {
     
     @objc private func handleQualitySwitch (_ sender: UIButton) {
         
-        var newURL: NSURL? {
+        var newURL: URL? {
             switch sender.tag {
             case 0:
-                return NSURL(string: sdURL)
+                return URL(string: sdURL)
             case 1:
-                return NSURL(string: hdURL)
+                return URL(string: hdURL)
             case 2:
-                return NSURL(string: fhdURL)
+                return URL(string: fhdURL)
             case 3:
-                return NSURL(string: mp3URL)
+                return URL(string: mp3URL)
             default:
-                return NSURL(string: hdURL)
+                return URL(string: hdURL)
             }
         }
         

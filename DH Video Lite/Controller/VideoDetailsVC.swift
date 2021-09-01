@@ -20,6 +20,10 @@ class VideoDetailsVC: UIViewController {
     var getShortContent = String()
     var getDate = String()
     var getCategory = String()
+    var getSDURL = String()
+    var getHDURL = String()
+    var getFHDURL = String()
+    var getMp3URL = String()
     
     //MARK: Lifecycle
     
@@ -79,6 +83,11 @@ class VideoDetailsVC: UIViewController {
         let videoPlayerWidth = self.view.frame.size.width
         let videoPlayerFrame = CGRect(x: 0, y: 0, width: videoPlayerWidth, height: videoPlayerHeight)
         videoPlayer = VideoPlayerView(frame: videoPlayerFrame)
+        videoPlayer?.addSD(sd: getSDURL)
+        videoPlayer?.addHD(hd: getHDURL)
+        videoPlayer?.addFHD(fhd: getFHDURL)
+        videoPlayer?.addMP3(mp3: getMp3URL)
+        videoPlayer?.initializePlayer()
         
         view.addSubview(videoPlayer!)
         self.videoPlayer?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
