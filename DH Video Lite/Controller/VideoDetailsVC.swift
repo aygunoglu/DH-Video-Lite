@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class VideoDetailsVC: UIViewController, URLSessionDownloadDelegate {
 
     //MARK: Properties
@@ -21,7 +19,6 @@ class VideoDetailsVC: UIViewController, URLSessionDownloadDelegate {
     }()
     
     private var downloadTask: URLSessionDownloadTask?
-    
     
     var videoPlayer: BasicVideoPlayer?
     var tableView = UITableView()
@@ -59,6 +56,8 @@ class VideoDetailsVC: UIViewController, URLSessionDownloadDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         navigationController?.navigationBar.isTranslucent = true
+        videoPlayer?.stopPlaying()
+        downloadTask?.cancel()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

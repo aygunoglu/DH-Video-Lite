@@ -28,7 +28,7 @@ class VideoCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.numberOfLines = 0
-        //label.adjustsFontSizeToFitWidth = true
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.boldSystemFont(ofSize: 19)
         label.textAlignment = .left
         return label

@@ -56,6 +56,7 @@
 		BF6F3F6526D50A2F00574CC8 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		BF6F3F6726D50F4900574CC8 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		BF6F3F6926D5193C00574CC8 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		BF72FE0826E16AE5004FD5A8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsVC.swift; sourceTree = "<group>"; };
 		BFF17BB326DC41F500B274B1 /* BasicVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVideoPlayer.swift; sourceTree = "<group>"; };
 		BFF5483526D67025004E1723 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		BF6F3F3E26D5066700574CC8 = {
 			isa = PBXGroup;
 			children = (
+				BF72FE0826E16AE5004FD5A8 /* README.md */,
 				BF6F3F4926D5066700574CC8 /* DH Video Lite */,
 				BF6F3F4826D5066700574CC8 /* Products */,
 				8E3A937ACBD7B7658AB0EF5C /* Pods */,

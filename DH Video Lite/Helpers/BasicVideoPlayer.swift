@@ -104,6 +104,10 @@ class BasicVideoPlayer: UIView {
         setupPlayerLayout()
     }
     
+    public func stopPlaying() {
+        player?.pause()
+    }
+    
     // Creating control layout elements
     private let activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .whiteLarge)
