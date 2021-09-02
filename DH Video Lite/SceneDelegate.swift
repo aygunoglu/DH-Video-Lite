@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navController.navigationBar.prefersLargeTitles = true
         navController.navigationBar.barTintColor = UIColor(red: 222/255, green: 222/255, blue: 222/255, alpha: 255/255)
         navController.isNavigationBarHidden = false
+    
         
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)

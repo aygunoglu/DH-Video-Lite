@@ -7,12 +7,29 @@
 
 import UIKit
 
-class VideoDetailsVC: UIViewController {
+
+
+class VideoDetailsVC: UIViewController, URLSessionDownloadDelegate {
 
     //MARK: Properties
     
+    private lazy var session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        configuration.waitsForConnectivity = true
+        return URLSession(configuration: configuration,
+                          delegate: self, delegateQueue: nil)
+    }()
+    
+    private var downloadTask: URLSessionDownloadTask?
+    
+    
     var videoPlayer: VideoPlayerView?
     var tableView = UITableView()
+    let overlayView = OverlayView()
+    var progressPercentage = "%00"
+    var isDownloading = false
+    var downloadData: Data?
+    var isPercentageHidden = true
     
     var getTitle = String()
     var getTitleBackgroundColor = String()
@@ -40,6 +57,7 @@ class VideoDetailsVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         navigationController?.navigationBar.isTranslucent = true
     }
     
@@ -76,6 +94,8 @@ class VideoDetailsVC: UIViewController {
     func setTableViewDelegates( ) {
         tableView.dataSource = self
         tableView.delegate = self
+        overlayView.delegate = self
+        
     }
     
     func videoPlayerSetup( ) {
@@ -121,6 +141,8 @@ class VideoDetailsVC: UIViewController {
 
 }
 
+//MARK: Table view configurations
+
 extension VideoDetailsVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,7 +163,10 @@ extension VideoDetailsVC: UITableViewDelegate, UITableViewDataSource {
             dateDownloadCell.contentView.backgroundColor = hexStringToUIColor(hex: getTitleBackgroundColor)
             dateDownloadCell.dateLabel.text = getDate
             dateDownloadCell.categoryLabel.text = getCategory
+            dateDownloadCell.percentageLabel.setTitle(progressPercentage, for: .normal)
+            dateDownloadCell.percentageLabel.isHidden = isPercentageHidden
             dateDownloadCell.delegate = self
+            dateDownloadCell.settingsDelegate = self
             return dateDownloadCell
         }else if indexPath.row == 2 {
             descriptionCell.descriptionLabel.text = getShortContent
@@ -157,10 +182,9 @@ extension VideoDetailsVC: UITableViewDelegate, UITableViewDataSource {
 
 extension VideoDetailsVC: UIViewControllerTransitioningDelegate {
     @objc func showDownloadOptions() {
-        let slideVC = OverlayView()
-        slideVC.modalPresentationStyle = .custom
-        slideVC.transitioningDelegate = self
-        self.present(slideVC, animated: true, completion: nil)
+        overlayView.modalPresentationStyle = .custom
+        overlayView.transitioningDelegate = self
+        self.present(overlayView, animated: true, completion: nil)
     }
     
     
@@ -172,6 +196,127 @@ extension VideoDetailsVC: UIViewControllerTransitioningDelegate {
 extension VideoDetailsVC: DateDownloadCellDelegate {
     func handleDownloadButtonTapped() {
         showDownloadOptions()
+    }
+}
+
+// MARK: This is where we handle downloading/pausing/stopping/resuming
+
+extension VideoDetailsVC: OverlayViewDelegate, DownloadSettingsDelegate {
+    
+    
+    func startDownload(_ senderTag: Int) {
+        overlayView.dismiss(animated: true, completion: nil)
+
+        var downloadURL: URL? {
+            switch senderTag {
+            case 0:
+                return URL(string: getFHDURL)
+            case 1:
+                return URL(string: getHDURL)
+            case 2:
+                return URL(string: getSDURL)
+            case 3:
+                return URL(string: getMp3URL)
+            default:
+                return URL(string: "")
+            }
+        }
+        
+        guard let safeURL = downloadURL else { return }
+        downloadTask = session.downloadTask(with: safeURL)
+        downloadTask?.resume()
+        isDownloading = true
+        isPercentageHidden = false
+    }
+    
+    //Update progress label
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        let progressText = "%" + String(Int(progress*100))
+        DispatchQueue.main.async { [weak self] in
+            self?.progressPercentage = progressText
+            self?.tableView.reloadData()
+        }
+    }
+    
+    //Save the downloaded video to Files directory
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        guard let httpResponse = downloadTask.response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            print ("server error")
+            return
+        }
+        do {
+            let documentsURL = try
+                FileManager.default.url(for: .documentDirectory,
+                                        in: .userDomainMask,
+                                        appropriateFor: nil,
+                                        create: false)
+            
+            let savedURL = documentsURL.appendingPathComponent(
+                "\(randomString(length: 2)).mp4")
+            print(location)
+            print(savedURL)
+            try FileManager.default.moveItem(at: location, to: savedURL)
+        } catch {
+            print ("file error: \(error)")
+        }
+        
+        isPercentageHidden = true
+        isDownloading = false
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func settingsButtonTapped() {
+        let alert = UIAlertController(title: "İndirmeyi ne yapalım?", message: .none, preferredStyle: .alert)
+
+        
+        if isDownloading {
+            alert.addAction(UIAlertAction(title: "Sonlandır", style: .default, handler: { action in
+                self.downloadTask?.cancel()
+                self.isPercentageHidden = true
+                self.isDownloading = false
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Duraklat", style: .default, handler: { action in
+                self.downloadTask?.cancel(byProducingResumeData: { (resumeDataOrNil) in
+                    self.downloadData = resumeDataOrNil
+                })
+                self.isDownloading = false
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Geri Dön", style: .destructive, handler: { action in
+                print("Button tapped")
+            }))
+        }else {
+            alert.addAction(UIAlertAction(title: "Devam et", style: .default, handler: { action in
+                guard let resumeData = self.downloadData else { return }
+                let downloadTask = self.session.downloadTask(withResumeData: resumeData)
+                downloadTask.resume()
+                self.downloadTask = downloadTask
+                self.isDownloading = true
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Sonlandır", style: .default, handler: { action in
+                print("Button tapped")
+                self.downloadTask?.cancel()
+                self.isPercentageHidden = true
+                self.isDownloading = false
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            }))
+        
+        }
+
+        present(alert, animated: true)
     }
     
 }

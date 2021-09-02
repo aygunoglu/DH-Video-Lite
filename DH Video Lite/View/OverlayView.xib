@@ -27,27 +27,39 @@
                             <state key="normal" title="H265 FHD Video İndir">
                                 <color key="titleColor" red="1" green="0.61166913094818409" blue="0.2946174735242082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="downloadPressed:" destination="-1" eventType="touchUpInside" id="Zy9-BG-gvE"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-bq-qMq">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-bq-qMq">
                             <rect key="frame" x="0.0" y="82" width="278" height="46"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                             <state key="normal" title="H265 HD Video İndir">
                                 <color key="titleColor" red="1" green="0.61166913089999997" blue="0.2946174735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="downloadPressed:" destination="-1" eventType="touchUpInside" id="9Y8-tO-lGY"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3w-qb-hwZ">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3w-qb-hwZ">
                             <rect key="frame" x="0.0" y="164" width="278" height="46"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                             <state key="normal" title="H265 SD Video İndir">
                                 <color key="titleColor" red="1" green="0.61166913089999997" blue="0.2946174735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="downloadPressed:" destination="-1" eventType="touchUpInside" id="eRz-9y-4b5"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF4-51-018">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF4-51-018">
                             <rect key="frame" x="0.0" y="246" width="278" height="46"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                             <state key="normal" title="MP3 Video İndir">
                                 <color key="titleColor" red="1" green="0.61166913089999997" blue="0.2946174735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="downloadPressed:" destination="-1" eventType="touchUpInside" id="A9r-OX-sZO"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

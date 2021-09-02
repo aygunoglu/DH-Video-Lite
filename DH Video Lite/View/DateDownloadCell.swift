@@ -11,9 +11,14 @@ protocol DateDownloadCellDelegate: AnyObject {
     func handleDownloadButtonTapped()
 }
 
+protocol DownloadSettingsDelegate: AnyObject {
+    func settingsButtonTapped()
+}
+
 class DateDownloadCell: UITableViewCell {
 
     weak var delegate: DateDownloadCellDelegate?
+    weak var settingsDelegate: DownloadSettingsDelegate?
     
     var dateLabel: UILabel = {
         let label = UILabel()
@@ -59,6 +64,27 @@ class DateDownloadCell: UITableViewCell {
         return label
     }()
     
+//    var percentageLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.textColor = .white
+//        label.numberOfLines = 1
+//        label.adjustsFontSizeToFitWidth = false
+//        label.font = UIFont.systemFont(ofSize: 20)
+//        label.textAlignment = .center
+//        return label
+//    }()
+    
+    lazy var percentageLabel: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = false
+
+        button.addTarget(self, action: #selector(handleSettingsTapped), for: .touchUpInside)
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureSubViews()
@@ -72,6 +98,7 @@ class DateDownloadCell: UITableViewCell {
         contentView.addSubview(dateLabel)
         contentView.addSubview(downloadButton)
         contentView.addSubview(categoryContainerView)
+        contentView.addSubview(percentageLabel)
         categoryContainerView.addSubview(categoryLabel)
         
         
@@ -91,10 +118,20 @@ class DateDownloadCell: UITableViewCell {
         downloadButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12).isActive = true
         downloadButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         downloadButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        percentageLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        percentageLabel.trailingAnchor.constraint(equalTo: downloadButton.leadingAnchor, constant: -10).isActive = true
+        //percentageLabel.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        //percentageLabel.widthAnchor.constraint(equalToConstant: 10).isActive = true
     }
     
     @objc func handleDownload() {
         delegate?.handleDownloadButtonTapped()
     }
+    
+    @objc func handleSettingsTapped() {
+        settingsDelegate?.settingsButtonTapped()
+    }
 
 }
+

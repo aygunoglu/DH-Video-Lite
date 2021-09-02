@@ -78,6 +78,8 @@ class VideoPlayerView: UIView {
             timeObserverSetup()
         }else {
             setupPlayerView(url: "https://h265.donanimhaber.com/snapchat2306rev3_hd.mp4")
+            setupPlayerLayout()
+            timeObserverSetup()
         }
     }
     
@@ -323,7 +325,6 @@ class VideoPlayerView: UIView {
             let duration = CMTimeGetSeconds(duration), time = CMTimeGetSeconds(currentTime)
             let progress = (time/duration)
             self.progressBar.value = Float(progress)
-            print(time)
         }
     }
     
@@ -514,11 +515,9 @@ extension VideoPlayerView {
                 removeTimeObserver()
                 
             case .moved:
-                print("Slider moved")
                 showControls()
                 
             case .ended:
-                print(sliderValue)
                 if let duration = self.player?.currentItem?.duration {
                     let currenTimeAfterDrag = Float(CMTimeGetSeconds(duration)) * sliderValue
                     player?.seek(to: CMTime(value: CMTimeValue(currenTimeAfterDrag), timescale: 1))

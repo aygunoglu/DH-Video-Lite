@@ -7,10 +7,21 @@
 
 import UIKit
 
+protocol OverlayViewDelegate: AnyObject {
+    func startDownload(_ senderTag: Int)
+}
+
 class OverlayView: UIViewController {
     
+    
+    weak var delegate: OverlayViewDelegate?
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
+
+    @IBAction func downloadPressed(_ sender: UIButton) {
+        delegate?.startDownload(sender.tag)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
