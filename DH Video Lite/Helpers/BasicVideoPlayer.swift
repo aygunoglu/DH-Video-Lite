@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class VideoPlayerView: UIView {
+class BasicVideoPlayer: UIView {
     
     private var timeObserver: Double?
     private var isPlaying = false
@@ -374,7 +374,7 @@ class VideoPlayerView: UIView {
 }
 
 // Setup player control layout here inside this extension
-extension VideoPlayerView {
+extension BasicVideoPlayer {
     
     private func setupPlayerLayout ( ) {
         
@@ -456,7 +456,7 @@ extension VideoPlayerView {
 }
 
 // Handling player controls inside this extension
-extension VideoPlayerView {
+extension BasicVideoPlayer {
     
     @objc private func handleForwardJump ( ) {
         
@@ -573,6 +573,12 @@ extension VideoPlayerView {
     }
     
     @objc private func handleFullScreenSwitch ( ) {
-        print("Full screen button tapped")
+        
+        if UIDevice.current.orientation.rawValue == 0 || UIDevice.current.orientation.rawValue == 1  {
+            UIDevice.current.setValue(UIDeviceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+        } else if UIDevice.current.orientation.isLandscape {
+            UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: "orientation")
+        }
+        
     }
 }

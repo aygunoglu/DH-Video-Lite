@@ -23,7 +23,7 @@ class VideoDetailsVC: UIViewController, URLSessionDownloadDelegate {
     private var downloadTask: URLSessionDownloadTask?
     
     
-    var videoPlayer: VideoPlayerView?
+    var videoPlayer: BasicVideoPlayer?
     var tableView = UITableView()
     let overlayView = OverlayView()
     var progressPercentage = "%00"
@@ -102,7 +102,7 @@ class VideoDetailsVC: UIViewController, URLSessionDownloadDelegate {
         let videoPlayerHeight = self.view.frame.size.width * 9 / 16
         let videoPlayerWidth = self.view.frame.size.width
         let videoPlayerFrame = CGRect(x: 0, y: 0, width: videoPlayerWidth, height: videoPlayerHeight)
-        videoPlayer = VideoPlayerView(frame: videoPlayerFrame)
+        videoPlayer = BasicVideoPlayer(frame: videoPlayerFrame)
         videoPlayer?.addSD(sd: getSDURL)
         videoPlayer?.addHD(hd: getHDURL)
         videoPlayer?.addFHD(fhd: getFHDURL)
