@@ -10,7 +10,7 @@ import UIKit
 class VideoListVC: UIViewController {
 
     //MARK: Properties
-    
+
     var tableView = UITableView()
     let videoListViewModel = VideoListViewModel()
     
@@ -19,7 +19,6 @@ class VideoListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.title
-        
         configureTableView()
         videoListViewModel.fetchVideos(pageNumber: videoListViewModel.pageNumber)
     }
