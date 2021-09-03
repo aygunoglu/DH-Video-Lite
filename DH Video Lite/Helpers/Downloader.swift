@@ -54,8 +54,9 @@ class Downloader: NSObject {
         delegate?.reloadTableView()
     }
     
-    func resumeDownload(withResumeData: Data) {
-        let downloadTask = session.downloadTask(withResumeData: withResumeData)
+    func resumeDownload() {
+        guard let resumeData = self.resumeData else { return }
+        let downloadTask = session.downloadTask(withResumeData: resumeData)
         downloadTask.resume()
         self.downloadTask = downloadTask
     }

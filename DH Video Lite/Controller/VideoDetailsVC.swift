@@ -213,7 +213,10 @@ extension VideoDetailsVC: OverlayViewDelegate, DownloadSettingsDelegate, Downloa
         downloader.startDownload(url: safeURL)
     }
     
+    //Handling download controls using UIAlertController
+    
     func settingsButtonTapped() {
+        
         let alert = UIAlertController(title: "İndirmeyi ne yapalım?", message: .none, preferredStyle: .alert)
         
         if downloader.isDownloading {
@@ -226,12 +229,11 @@ extension VideoDetailsVC: OverlayViewDelegate, DownloadSettingsDelegate, Downloa
             }))
             
             alert.addAction(UIAlertAction(title: "Geri Dön", style: .destructive, handler: { action in
-                print("Button tapped")
+                //geri dönecek
             }))
         }else {
             alert.addAction(UIAlertAction(title: "Devam et", style: .default, handler: { action in
-                guard let resumeData = self.downloader.resumeData else { return }
-                self.downloader.resumeDownload(withResumeData: resumeData)
+                self.downloader.resumeDownload()
             }))
             
             alert.addAction(UIAlertAction(title: "Sonlandır", style: .default, handler: { action in
