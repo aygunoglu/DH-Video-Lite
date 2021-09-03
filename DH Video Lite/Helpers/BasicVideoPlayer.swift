@@ -93,6 +93,7 @@ class BasicVideoPlayer: UIView {
             playerLayer.frame = self.frame
         
             player?.play()
+            isPlaying = true
             player?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: .new, context: nil)
         }
         
