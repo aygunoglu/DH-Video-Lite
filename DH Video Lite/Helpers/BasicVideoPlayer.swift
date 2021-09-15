@@ -295,6 +295,8 @@ class BasicVideoPlayer: UIView {
                 print("error while loading video")
             case .unknown:
                 print("not yet ready")
+            @unknown default:
+                print("not yet ready")
                 
             }
             //hide controls after two seconds

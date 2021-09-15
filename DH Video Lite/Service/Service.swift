@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Moya
 
 class Service {
     static let shared = Service()
