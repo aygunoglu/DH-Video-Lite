@@ -20,7 +20,7 @@ class VideoListVC: UIViewController {
         super.viewDidLoad()
         title = Constants.title
         configureTableView()
-        videoListViewModel.fetchVideos(pageNumber: videoListViewModel.pageNumber)
+        videoListViewModel.fetchVideos(pageIndex: videoListViewModel.pageIndex, pageSize: videoListViewModel.pageSize)
     }
     
     
@@ -28,8 +28,6 @@ class VideoListVC: UIViewController {
     
     func configureTableView() {
 
-//        tableView.estimatedRowHeight = 2000.0
-//        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorColor = .clear
         view.addSubview(tableView)
 
@@ -72,8 +70,8 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
-            videoListViewModel.pageNumber += 1
-            videoListViewModel.fetchVideos(pageNumber: videoListViewModel.pageNumber)
+            videoListViewModel.pageIndex += 1
+            videoListViewModel.fetchVideos(pageIndex: videoListViewModel.pageIndex, pageSize: videoListViewModel.pageSize)
         }
     }
     

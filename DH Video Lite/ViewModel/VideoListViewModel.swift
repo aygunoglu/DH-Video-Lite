@@ -13,16 +13,18 @@ protocol VideoListViewModelDelegate: AnyObject {
 
 final class VideoListViewModel {
     
-    var pageNumber = 0
+    var pageIndex = 0
+    var pageSize = 20
     var videos = [VideoInfo]()
     weak var delegate: VideoListViewModelDelegate?
     
-    func fetchVideos(pageNumber: Int) {
-        Service.shared.fetchVideo(page: pageNumber) { videos in
-            self.videos = videos
+    func fetchVideos(pageIndex: Int, pageSize: Int) {
+        NetworkManager.shared.fetchVideos(pageIndex: pageIndex, pageSize: pageSize) { videos, error in
+            if let safeVideos = videos {
+                self.videos = safeVideos
+            }
             self.delegate?.refreshTableView()
         }
     }
-    
     
 }
