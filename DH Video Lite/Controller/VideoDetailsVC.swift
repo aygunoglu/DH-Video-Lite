@@ -32,7 +32,7 @@ class VideoDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        themeManager.register(observer: self)
         videoPlayerSetup()
         configureTableView()
     }
@@ -63,7 +63,7 @@ class VideoDetailsVC: UIViewController {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.separatorColor = .clear
-        tableView.backgroundColor = .white
+        apply(theme: themeManager.theme)
         
         if let safeVideoPlayer = videoPlayer {
             tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -144,8 +144,8 @@ extension VideoDetailsVC: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             titleCell.titleLabel.text = getTitle
-            titleCell.titleLabel.textColor = hexStringToUIColor(hex: getTitleLabelColor)
-            titleCell.contentView.backgroundColor =  hexStringToUIColor(hex: getTitleBackgroundColor)
+            titleCell.titleLabel.textColor = themeManager.theme == .dark ? .white : hexStringToUIColor(hex: getTitleLabelColor)
+            titleCell.contentView.backgroundColor = themeManager.theme == .dark ? .black : hexStringToUIColor(hex: getTitleBackgroundColor)
             return titleCell
         }else if indexPath.row == 1 {
             dateDownloadCell.contentView.backgroundColor = hexStringToUIColor(hex: getTitleBackgroundColor)
@@ -153,11 +153,15 @@ extension VideoDetailsVC: UITableViewDelegate, UITableViewDataSource {
             dateDownloadCell.categoryLabel.text = getCategory
             dateDownloadCell.percentageLabel.setTitle(downloader.progress, for: .normal)
             dateDownloadCell.percentageLabel.isHidden = downloader.isPercentageHidden
+            dateDownloadCell.backgroundColor = themeManager.theme == .dark ? .black : hexStringToUIColor(hex: getTitleBackgroundColor)
+            dateDownloadCell.contentView.backgroundColor = themeManager.theme == .dark ? .black : hexStringToUIColor(hex: getTitleBackgroundColor)
             dateDownloadCell.delegate = self
             dateDownloadCell.settingsDelegate = self
             return dateDownloadCell
         }else if indexPath.row == 2 {
             descriptionCell.descriptionLabel.text = getShortContent
+            descriptionCell.descriptionLabel.textColor = themeManager.theme == .dark ? .white : .black
+            descriptionCell.contentView.backgroundColor = themeManager.theme == .dark ? .black : .white
             return descriptionCell
         }else {
             return UITableViewCell()
@@ -248,5 +252,11 @@ extension VideoDetailsVC: OverlayViewDelegate, DownloadSettingsDelegate, Downloa
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
+    }
+}
+
+extension VideoDetailsVC: Themeable {
+    func apply(theme: Theme) {
+        tableView.backgroundColor = theme.portalListBackgroundColor
     }
 }

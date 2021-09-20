@@ -12,7 +12,7 @@ class DescriptionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .white
+        //contentView.backgroundColor = .white
         descriptionLabel.textColor = .black
     }
 

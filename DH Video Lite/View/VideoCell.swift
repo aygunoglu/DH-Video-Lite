@@ -11,6 +11,9 @@ import Kingfisher
 class VideoCell: UITableViewCell {
     
     var cellColor: UIColor?
+    //var videoInfo = VideoInfo()
+    
+
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -42,8 +45,20 @@ class VideoCell: UITableViewCell {
         return imageView
     }()
 
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            frame.size.width = UIScreen.main.bounds.width
+            super.frame = frame
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        themeManager.register(observer: self)
         backgroundColor = Constants.defaultBackgroundColor
         selectionStyle = .none
     }
@@ -87,5 +102,12 @@ class VideoCell: UITableViewCell {
         videoTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
     }
 
+}
+
+extension VideoCell: Themeable {
+    func apply(theme: Theme) {
+        self.backgroundColor = theme.portalListBackgroundColor
+        self.containerView.backgroundColor = theme.tableViewCellBackgroundColor
+    }
 }
 

@@ -64,17 +64,6 @@ class DateDownloadCell: UITableViewCell {
         return label
     }()
     
-//    var percentageLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textColor = .white
-//        label.numberOfLines = 1
-//        label.adjustsFontSizeToFitWidth = false
-//        label.font = UIFont.systemFont(ofSize: 20)
-//        label.textAlignment = .center
-//        return label
-//    }()
-    
     lazy var percentageLabel: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white

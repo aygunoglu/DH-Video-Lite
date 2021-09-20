@@ -14,12 +14,18 @@ class VideoListVC: UIViewController {
     var tableView = UITableView()
     let videoListViewModel = VideoListViewModel()
     
+    
+    let themeSwitch = UISwitch()
+    
     //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.title
+        
+        themeManager.register(observer: self)
         configureTableView()
+        rightNavButton()
         videoListViewModel.fetchVideos(pageIndex: videoListViewModel.pageIndex, pageSize: videoListViewModel.pageSize)
     }
     
@@ -27,12 +33,11 @@ class VideoListVC: UIViewController {
     //MARK: Helpers
     
     func configureTableView() {
-
         tableView.separatorColor = .clear
         view.addSubview(tableView)
 
         setTableViewDelegates()
-        tableView.backgroundColor = Constants.defaultBackgroundColor
+        tableView.backgroundColor = themeManager.theme.portalListBackgroundColor
         tableView.pin(to: view)
         
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -62,9 +67,20 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.videoCell) as! VideoCell
-        cell.frame.size.width = tableView.frame.size.width
         let videoInfo = videoListViewModel.videos[indexPath.row]
-        cell.set(with: videoInfo)
+        
+        switch themeManager.theme.type {
+        case .dark:
+            cell.set(with: videoInfo)
+            cell.contentView.backgroundColor = themeManager.theme.portalListBackgroundColor
+            cell.containerView.backgroundColor = themeManager.theme.tableViewCellBackgroundColor
+            cell.videoTitleLabel.textColor = .white
+        case .light:
+            cell.set(with: videoInfo)
+            cell.contentView.backgroundColor = themeManager.theme.portalListBackgroundColor
+            
+        }
+        
         return cell
     }
     
@@ -90,6 +106,19 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    func rightNavButton(){
+
+        let frameSize = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 50, height: 30))
+        themeSwitch.frame = frameSize
+
+        themeSwitch.addTarget(self, action: #selector(didTap(switchView:)), for: .valueChanged)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: themeSwitch)
+    }
+    
+    @objc func didTap(switchView: UISwitch) {
+        themeManager.toggleTheme()
+    }
+    
 }
 
     //ViewModel Delegate
@@ -103,3 +132,15 @@ extension VideoListVC: VideoListViewModelDelegate {
     
 }
 
+extension VideoListVC: Themeable {
+    func apply(theme: Theme) {
+        tableView.backgroundColor = theme.portalListBackgroundColor
+        
+        themeSwitch.onTintColor = theme.switchTintColor
+        themeSwitch.isOn = theme == .dark
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+}
