@@ -5,22 +5,26 @@ PODS:
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - SwiftTheme (0.6.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 6.3.0)
   - Moya (~> 15.0.0)
+  - SwiftTheme
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
     - Moya
+    - SwiftTheme
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  SwiftTheme: 50c3b3d38bdee43212af1f4ec0fb95dec550b2be
 
-PODFILE CHECKSUM: 4cbf92bfb25305be3215325545658660ed86efcf
+PODFILE CHECKSUM: 3d365054e024aa92193854d4fd8e6d71f5c0788e
 
 COCOAPODS: 1.10.2

@@ -14,25 +14,54 @@ class VideoListVC: UIViewController {
     var tableView = UITableView()
     let videoListViewModel = VideoListViewModel()
     
+    lazy var settingsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.theme_setTitleColor(GlobalPicker.textColor, forState: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = false
+    
+        let frameSize = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 60, height: 40))
+        button.frame = frameSize
+        button.setTitle("Settings", for: .normal)
+    
+        button.addTarget(self, action: #selector(handleSettingsTapped), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.title
         configureTableView()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: settingsButton)
         videoListViewModel.fetchVideos(pageIndex: videoListViewModel.pageIndex, pageSize: videoListViewModel.pageSize)
+        
+        updateTheme()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    @objc func handleSettingsTapped(sender: UIBarButtonItem) {
+        let controller = SettingsViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     //MARK: Helpers
     
     func configureTableView() {
 
+        tableView.theme_backgroundColor = GlobalPicker.backgroundColor
         tableView.separatorColor = .clear
         view.addSubview(tableView)
 
         setTableViewDelegates()
-        tableView.backgroundColor = Constants.defaultBackgroundColor
+        //tableView.backgroundColor = Constants.defaultBackgroundColor
         tableView.pin(to: view)
         
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -62,7 +91,6 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.videoCell) as! VideoCell
-        cell.frame.size.width = tableView.frame.size.width
         let videoInfo = videoListViewModel.videos[indexPath.row]
         cell.set(with: videoInfo)
         return cell
@@ -98,6 +126,35 @@ extension VideoListVC: VideoListViewModelDelegate {
     func refreshTableView( ) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+}
+
+extension VideoListVC {
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard
+            #available(iOS 13.0, *),
+            traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)
+            else { return }
+        
+        updateTheme()
+    }
+    
+    private func updateTheme() {
+        guard #available(iOS 12.0, *) else { return }
+        
+        switch traitCollection.userInterfaceStyle {
+        case .light:
+            MyThemes.switchNight(isToNight: false)
+        case .dark:
+            MyThemes.switchNight(isToNight: true)
+        case .unspecified:
+            break
+        @unknown default:
+            break
         }
     }
     

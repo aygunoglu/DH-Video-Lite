@@ -18,12 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let navController = UINavigationController(rootViewController: VideoListVC())
-        navController.navigationBar.prefersLargeTitles = true
-        navController.navigationBar.barTintColor = UIColor(red: 222/255, green: 222/255, blue: 222/255, alpha: 255/255)
-        navController.isNavigationBarHidden = false
-    
         
+        let navController = NavController(rootViewController: VideoListVC())
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

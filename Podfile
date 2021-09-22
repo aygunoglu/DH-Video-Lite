@@ -9,5 +9,7 @@ target 'DH Video Lite' do
 
   pod 'Kingfisher', '~> 6.3.0'
   pod 'Moya', '~> 15.0.0'
+  pod 'SwiftTheme'
+
 
 end

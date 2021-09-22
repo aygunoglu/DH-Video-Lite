@@ -12,8 +12,8 @@ class DescriptionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.backgroundColor = .white
-        descriptionLabel.textColor = .black
+        contentView.theme_backgroundColor = GlobalPicker.backgroundColor
+        descriptionLabel.theme_textColor = GlobalPicker.textColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

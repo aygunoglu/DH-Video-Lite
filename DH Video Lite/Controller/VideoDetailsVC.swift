@@ -63,7 +63,7 @@ class VideoDetailsVC: UIViewController {
         view.addSubview(tableView)
         setTableViewDelegates()
         tableView.separatorColor = .clear
-        tableView.backgroundColor = .white
+        tableView.theme_backgroundColor = GlobalPicker.backgroundColor
         
         if let safeVideoPlayer = videoPlayer {
             tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -144,11 +144,22 @@ extension VideoDetailsVC: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             titleCell.titleLabel.text = getTitle
-            titleCell.titleLabel.textColor = hexStringToUIColor(hex: getTitleLabelColor)
-            titleCell.contentView.backgroundColor =  hexStringToUIColor(hex: getTitleBackgroundColor)
+            
+            if MyThemes.current == .night {
+                titleCell.contentView.theme_backgroundColor = GlobalPicker.backgroundColor
+                titleCell.titleLabel.theme_textColor = GlobalPicker.textColor
+            }else {
+                titleCell.contentView.backgroundColor =  hexStringToUIColor(hex: getTitleBackgroundColor)
+                titleCell.titleLabel.textColor = hexStringToUIColor(hex: getTitleLabelColor)
+            }
+            
             return titleCell
         }else if indexPath.row == 1 {
-            dateDownloadCell.contentView.backgroundColor = hexStringToUIColor(hex: getTitleBackgroundColor)
+            if MyThemes.current == .night {
+                dateDownloadCell.contentView.theme_backgroundColor = GlobalPicker.backgroundColor
+            }else {
+                dateDownloadCell.contentView.backgroundColor = hexStringToUIColor(hex: getTitleBackgroundColor)
+            }
             dateDownloadCell.dateLabel.text = getDate
             dateDownloadCell.categoryLabel.text = getCategory
             dateDownloadCell.percentageLabel.setTitle(downloader.progress, for: .normal)

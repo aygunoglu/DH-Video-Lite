@@ -13,9 +13,13 @@
 		BF03671026DD0306005FB17F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03670E26DD0306005FB17F /* TitleCell.swift */; };
 		BF03671126DD0306005FB17F /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF03670F26DD0306005FB17F /* TitleCell.xib */; };
 		BF03671526DD397D005FB17F /* DateDownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03671426DD397D005FB17F /* DateDownloadCell.swift */; };
+		BF0CAC0A26FA14B4007C1ABB /* GlobalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CAC0926FA14B3007C1ABB /* GlobalPicker.swift */; };
+		BF0CAC0C26FA14C0007C1ABB /* MyThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0CAC0B26FA14C0007C1ABB /* MyThemes.swift */; };
 		BF0E499926F24D2C00B7A2CA /* VideosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E499826F24D2C00B7A2CA /* VideosAPI.swift */; };
 		BF0E499B26F24D3F00B7A2CA /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E499A26F24D3F00B7A2CA /* BaseService.swift */; };
 		BF0E499D26F268D200B7A2CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E499C26F268D200B7A2CA /* NetworkManager.swift */; };
+		BF16BD2126F93A1100E97D6C /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF16BD2026F93A1100E97D6C /* NavController.swift */; };
+		BF16BD2326F93D4500E97D6C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF16BD2226F93D4500E97D6C /* SettingsViewController.swift */; };
 		BF449F6B26DE4DFE0015AA56 /* DownloadPresentationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */; };
 		BF449F6D26DE4E420015AA56 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF449F6C26DE4E420015AA56 /* OverlayView.xib */; };
 		BF449F6F26DE4F4C0015AA56 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF449F6E26DE4F4C0015AA56 /* OverlayView.swift */; };
@@ -44,9 +48,13 @@
 		BF03670E26DD0306005FB17F /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		BF03670F26DD0306005FB17F /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		BF03671426DD397D005FB17F /* DateDownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDownloadCell.swift; sourceTree = "<group>"; };
+		BF0CAC0926FA14B3007C1ABB /* GlobalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPicker.swift; sourceTree = "<group>"; };
+		BF0CAC0B26FA14C0007C1ABB /* MyThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyThemes.swift; sourceTree = "<group>"; };
 		BF0E499826F24D2C00B7A2CA /* VideosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosAPI.swift; sourceTree = "<group>"; };
 		BF0E499A26F24D3F00B7A2CA /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		BF0E499C26F268D200B7A2CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BF16BD2026F93A1100E97D6C /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		BF16BD2226F93D4500E97D6C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPresentationVC.swift; sourceTree = "<group>"; };
 		BF449F6C26DE4E420015AA56 /* OverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		BF449F6E26DE4F4C0015AA56 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -98,6 +106,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BF0CAC0826FA14A7007C1ABB /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				BF0CAC0926FA14B3007C1ABB /* GlobalPicker.swift */,
+				BF0CAC0B26FA14C0007C1ABB /* MyThemes.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		BF6F3F3E26D5066700574CC8 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +137,7 @@
 		BF6F3F4926D5066700574CC8 /* DH Video Lite */ = {
 			isa = PBXGroup;
 			children = (
+				BF0CAC0826FA14A7007C1ABB /* Theme */,
 				BF6F3F5E26D5072E00574CC8 /* Model */,
 				BF6F3F5F26D5073800574CC8 /* View */,
 				BFA1D2C826DA8F9100432FBD /* Controller */,
@@ -194,6 +212,8 @@
 				BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */,
 				BF6F3F6326D5081800574CC8 /* VideoListVC.swift */,
 				BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */,
+				BF16BD2026F93A1100E97D6C /* NavController.swift */,
+				BF16BD2226F93D4500E97D6C /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -317,7 +337,10 @@
 			files = (
 				BF6F3F6A26D5193C00574CC8 /* Video.swift in Sources */,
 				BF03670D26DD015E005FB17F /* DescriptionCell.swift in Sources */,
+				BF16BD2326F93D4500E97D6C /* SettingsViewController.swift in Sources */,
+				BF0CAC0C26FA14C0007C1ABB /* MyThemes.swift in Sources */,
 				BFA1D2C726DA6BB100432FBD /* VideoDetailsVC.swift in Sources */,
+				BF0CAC0A26FA14B4007C1ABB /* GlobalPicker.swift in Sources */,
 				BF03671026DD0306005FB17F /* TitleCell.swift in Sources */,
 				BFF5483826D69742004E1723 /* VideoListViewModel.swift in Sources */,
 				BF6F3F6826D50F4900574CC8 /* VideoCell.swift in Sources */,
@@ -330,6 +353,7 @@
 				BF0E499B26F24D3F00B7A2CA /* BaseService.swift in Sources */,
 				BF6F3F4D26D5066700574CC8 /* SceneDelegate.swift in Sources */,
 				BF449F6B26DE4DFE0015AA56 /* DownloadPresentationVC.swift in Sources */,
+				BF16BD2126F93A1100E97D6C /* NavController.swift in Sources */,
 				BF0E499926F24D2C00B7A2CA /* VideosAPI.swift in Sources */,
 				BFF17BB426DC41F500B274B1 /* BasicVideoPlayer.swift in Sources */,
 				BF6C784126D7A8E400A6413F /* Constants.swift in Sources */,

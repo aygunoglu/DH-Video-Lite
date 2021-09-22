@@ -41,10 +41,21 @@ class VideoCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            frame.size.width = UIScreen.main.bounds.width
+            super.frame = frame
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = Constants.defaultBackgroundColor
+        theme_backgroundColor = GlobalPicker.backgroundColor
         selectionStyle = .none
     }
     
@@ -57,12 +68,21 @@ class VideoCell: UITableViewCell {
        // print(contentView.frame.size.width)
         print(contentView.frame.size.width)
         contentView.addSubview(containerView)
-        configureContainerView()
+        
         let thumbnailURL = URL(string: video.nImage.value)
         videoImageView.kf.setImage(with: thumbnailURL)
         videoTitleLabel.text = video.title
-        containerView.backgroundColor = hexStringToUIColor(hex: video.colorAvarage)
-        videoTitleLabel.textColor = hexStringToUIColor(hex: video.textColor)
+        
+        if MyThemes.current == .night {
+            containerView.theme_backgroundColor = GlobalPicker.barTintColor
+            videoTitleLabel.theme_textColor = GlobalPicker.textColor
+        }else {
+            containerView.backgroundColor = hexStringToUIColor(hex: video.colorAvarage)
+            videoTitleLabel.textColor = hexStringToUIColor(hex: video.textColor)
+            
+        }
+        
+        configureContainerView()
     }
     
     
