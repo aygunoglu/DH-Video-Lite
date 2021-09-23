@@ -111,7 +111,9 @@ class BasicVideoPlayer: UIView {
     
     // Creating control layout elements
     private let activityIndicatorView: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+        let aiv = UIActivityIndicatorView()
+        aiv.color = .white
+        aiv.style = UIActivityIndicatorView.Style.large
         aiv.translatesAutoresizingMaskIntoConstraints = false
         aiv.startAnimating()
         return aiv

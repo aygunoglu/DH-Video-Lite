@@ -11,7 +11,7 @@ protocol Themeable: AnyObject {
     func apply(theme: Theme)
 }
 
-extension Themeable where Self: AnyObject {
+extension Themeable {
     var themeManager: ThemeManageable {
         return ThemeManager.shared
     }
