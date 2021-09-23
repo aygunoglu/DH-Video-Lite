@@ -6,15 +6,31 @@
 //
 
 import UIKit
+import SwiftTheme
 
 class NavController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNavBar()
+        
+        
+    }
+    
+    func setNavBar( ) {
         self.navigationBar.prefersLargeTitles = false
-        self.navigationBar.barTintColor = UIColor(red: 222/255, green: 222/255, blue: 222/255, alpha: 255/255)
         self.isNavigationBarHidden = false
         
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.backgroundColor = UIColor.red
+            navigationBar.standardAppearance = navBarAppearance
+            navigationBar.scrollEdgeAppearance = navBarAppearance
+        }
     }
     
 }

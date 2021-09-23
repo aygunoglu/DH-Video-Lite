@@ -20,23 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // status bar
         
         UIApplication.shared.theme_setStatusBarStyle([.lightContent, .default, .lightContent, .lightContent], animated: true)
-        
-        let navigationBar = UINavigationBar.appearance()
-        
-        let shadow = NSShadow()
-        shadow.shadowOffset = CGSize(width: 0, height: 0)
-        
-        let titleAttributes = GlobalPicker.barTextColors.map { hexString in
-            return [
-                NSAttributedString.Key.foregroundColor: UIColor(rgba: hexString),
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
-                NSAttributedString.Key.shadow: shadow
-            ]
-        }
-        
-        navigationBar.theme_tintColor = GlobalPicker.barTextColor
-        navigationBar.theme_barTintColor = GlobalPicker.barTintColor
-        navigationBar.theme_titleTextAttributes = ThemeStringAttributesPicker.pickerWithAttributes(titleAttributes)
+//        if #available(iOS 15, *) {
+//            let appearance = UINavigationBarAppearance()
+//            appearance.configureWithOpaqueBackground()
+//            UINavigationBar.appearance().standardAppearance = appearance
+//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//            UINavigationBar.appearance().theme_tintColor = GlobalPicker.barTintColor
+//            UINavigationBar.appearance().theme_tintColor = GlobalPicker.barTextColor
+//        }
+
         return true
     }
 
