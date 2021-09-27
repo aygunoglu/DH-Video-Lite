@@ -17,7 +17,6 @@
 		BF0E499B26F24D3F00B7A2CA /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E499A26F24D3F00B7A2CA /* BaseService.swift */; };
 		BF0E499D26F268D200B7A2CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E499C26F268D200B7A2CA /* NetworkManager.swift */; };
 		BF22883926F68BC1002DAFE3 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22883826F68BC1002DAFE3 /* NavController.swift */; };
-		BF22883B26F68F49002DAFE3 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22883A26F68F49002DAFE3 /* Styles.swift */; };
 		BF22883D26F68F59002DAFE3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22883C26F68F59002DAFE3 /* Theme.swift */; };
 		BF22883F26F68F66002DAFE3 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22883E26F68F66002DAFE3 /* ColorPalette.swift */; };
 		BF22884126F68F71002DAFE3 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22884026F68F71002DAFE3 /* Themeable.swift */; };
@@ -35,6 +34,7 @@
 		BF6F3F6626D50A2F00574CC8 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6526D50A2F00574CC8 /* UIView+Ext.swift */; };
 		BF6F3F6826D50F4900574CC8 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6726D50F4900574CC8 /* VideoCell.swift */; };
 		BF6F3F6A26D5193C00574CC8 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F3F6926D5193C00574CC8 /* Video.swift */; };
+		BF8DDE8626FFC162000CC8D0 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DDE8526FFC161000CC8D0 /* SettingsVC.swift */; };
 		BFA1D2C726DA6BB100432FBD /* VideoDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */; };
 		BFE3E4A726E2AF9700E4721B /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE3E4A626E2AF9700E4721B /* Downloader.swift */; };
 		BFF17BB426DC41F500B274B1 /* BasicVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF17BB326DC41F500B274B1 /* BasicVideoPlayer.swift */; };
@@ -54,7 +54,6 @@
 		BF0E499A26F24D3F00B7A2CA /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		BF0E499C26F268D200B7A2CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BF22883826F68BC1002DAFE3 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
-		BF22883A26F68F49002DAFE3 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		BF22883C26F68F59002DAFE3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BF22883E26F68F66002DAFE3 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		BF22884026F68F71002DAFE3 /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		BF6F3F6726D50F4900574CC8 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		BF6F3F6926D5193C00574CC8 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		BF72FE0826E16AE5004FD5A8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BF8DDE8526FFC161000CC8D0 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		BFA1D2C626DA6BB100432FBD /* VideoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsVC.swift; sourceTree = "<group>"; };
 		BFE3E4A626E2AF9700E4721B /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		BFF17BB326DC41F500B274B1 /* BasicVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVideoPlayer.swift; sourceTree = "<group>"; };
@@ -113,11 +113,10 @@
 		BF22883726F62158002DAFE3 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				BF22883A26F68F49002DAFE3 /* Styles.swift */,
-				BF22883C26F68F59002DAFE3 /* Theme.swift */,
-				BF22883E26F68F66002DAFE3 /* ColorPalette.swift */,
 				BF22884026F68F71002DAFE3 /* Themeable.swift */,
 				BF22884226F68F81002DAFE3 /* ThemeManager.swift */,
+				BF22883C26F68F59002DAFE3 /* Theme.swift */,
+				BF22883E26F68F66002DAFE3 /* ColorPalette.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -220,6 +219,7 @@
 				BF6F3F6326D5081800574CC8 /* VideoListVC.swift */,
 				BF449F6A26DE4DFE0015AA56 /* DownloadPresentationVC.swift */,
 				BF22883826F68BC1002DAFE3 /* NavController.swift */,
+				BF8DDE8526FFC161000CC8D0 /* SettingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -350,6 +350,7 @@
 				BF6F3F6826D50F4900574CC8 /* VideoCell.swift in Sources */,
 				BF6F3F6626D50A2F00574CC8 /* UIView+Ext.swift in Sources */,
 				BF6F3F6426D5081800574CC8 /* VideoListVC.swift in Sources */,
+				BF8DDE8626FFC162000CC8D0 /* SettingsVC.swift in Sources */,
 				BF449F6F26DE4F4C0015AA56 /* OverlayView.swift in Sources */,
 				BFE3E4A726E2AF9700E4721B /* Downloader.swift in Sources */,
 				BF6F3F4B26D5066700574CC8 /* AppDelegate.swift in Sources */,
@@ -358,7 +359,6 @@
 				BF6F3F4D26D5066700574CC8 /* SceneDelegate.swift in Sources */,
 				BF449F6B26DE4DFE0015AA56 /* DownloadPresentationVC.swift in Sources */,
 				BF22883D26F68F59002DAFE3 /* Theme.swift in Sources */,
-				BF22883B26F68F49002DAFE3 /* Styles.swift in Sources */,
 				BF22884126F68F71002DAFE3 /* Themeable.swift in Sources */,
 				BF22883926F68BC1002DAFE3 /* NavController.swift in Sources */,
 				BF0E499926F24D2C00B7A2CA /* VideosAPI.swift in Sources */,

@@ -44,7 +44,6 @@ class VideoDetailsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        navigationController?.navigationBar.isTranslucent = true
         videoPlayer?.stopPlaying()
         downloader.cancelDownload()
     }

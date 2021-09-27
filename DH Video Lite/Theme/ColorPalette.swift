@@ -15,7 +15,10 @@ struct ColorPalette {
     let primary: UIColor
     let secondary: UIColor
     let complementary: UIColor
-    let tint: UIColor
+    let settingsCellColor: UIColor
+    let navBarTintColor: UIColor
+    let navBarBarTintColor: UIColor
+    let switchTintColor: UIColor
 
     static let light: ColorPalette = .init(
         textColor: .black,
@@ -24,7 +27,10 @@ struct ColorPalette {
         primary: UIColor(hue: 0.635, saturation: 0.101, brightness: 0.2, alpha: 1),
         secondary: UIColor(white: 0.4, alpha: 1.0),
         complementary: UIColor(white: 0.35, alpha: 1.0),
-        tint: UIColor(hue:0.620, saturation:0.75, brightness:1.0, alpha:1)
+        settingsCellColor: .white,
+        navBarTintColor: UIColor(hue:0.620, saturation:0.75, brightness:1.0, alpha:1),
+        navBarBarTintColor: .black,
+        switchTintColor: UIColor(hue:0.620, saturation:0.75, brightness:1.0, alpha:1)
     )
 
     static let dark: ColorPalette = .init(
@@ -34,7 +40,10 @@ struct ColorPalette {
         primary: UIColor(hue:0.121, saturation:0.144, brightness:0.793, alpha:1),
         secondary: UIColor(white: 0.6, alpha: 1.0),
         complementary: UIColor(white: 0.81, alpha: 1.0),
-        tint: UIColor(hue:0.129, saturation:0.702, brightness:0.992, alpha:1)
+        settingsCellColor: .black,
+        navBarTintColor: UIColor(hue:0.129, saturation:0.702, brightness:0.992, alpha:1),
+        navBarBarTintColor: .white,
+        switchTintColor: UIColor(hue:0.129, saturation:0.702, brightness:0.992, alpha:1)
     )
 
 }

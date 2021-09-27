@@ -15,13 +15,15 @@ protocol ThemeManageable: AnyObject {
 
 class ThemeManager: ThemeManageable {
     static let shared = ThemeManager()
+    
+    private var observers: NSHashTable<AnyObject> = NSHashTable.weakObjects()
+    
     var theme: Theme {
         didSet {
             UserDefaults.standard.set(theme == .dark, forKey: "isDark")
             notifyObservers()
         }
     }
-    private var observers: NSHashTable<AnyObject> = NSHashTable.weakObjects()
 
     private init() {
         self.theme = UserDefaults.standard.bool(forKey: "isDark") ? .dark : .light

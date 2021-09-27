@@ -23,6 +23,7 @@ struct Theme: Equatable {
 
     let separatorColor: UIColor
     let tableViewCellBackgroundColor: UIColor
+    let settingsCellColor: UIColor
     //let portalListCellContainerColor: UIColor
 
     let navbarTintColor: UIColor
@@ -39,10 +40,11 @@ struct Theme: Equatable {
         self.descriptionTextColor = colors.secondary
         self.separatorColor = colors.secondary
         self.tableViewCellBackgroundColor = colors.tableViewCellBackgroundColor
-        self.navbarTintColor = colors.tint
+        self.navbarTintColor = colors.navBarTintColor
         self.navbarStyle = type == .dark ? .black : .default
-        self.navbarBarTintColor = type == .dark ? .black : .white
-        self.switchTintColor = colors.tint
+        self.navbarBarTintColor = colors.navBarBarTintColor
+        self.switchTintColor = colors.switchTintColor
+        self.settingsCellColor = colors.settingsCellColor
         self.navbarTitleAttrs = type == .dark ? [NSAttributedString.Key.foregroundColor: UIColor.white] : [NSAttributedString.Key.foregroundColor: UIColor.black]
         //if type == .dark { self.portalListCellContainerColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1) }
         

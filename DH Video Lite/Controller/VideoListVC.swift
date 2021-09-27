@@ -14,18 +14,28 @@ class VideoListVC: UIViewController {
     var tableView = UITableView()
     let videoListViewModel = VideoListViewModel()
     
+    lazy var settingsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Settings", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = false
+        let frameSize = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 60, height: 40))
+        button.frame = frameSize
     
-    let themeSwitch = UISwitch()
+        button.addTarget(self, action: #selector(handleSettingsTapped), for: .touchUpInside)
+        return button
+    }()
     
     //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.title
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: settingsButton)
         
         themeManager.register(observer: self)
         configureTableView()
-        rightNavButton()
         videoListViewModel.fetchVideos(pageIndex: videoListViewModel.pageIndex, pageSize: videoListViewModel.pageSize)
     }
     
@@ -54,6 +64,11 @@ class VideoListVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         videoListViewModel.delegate = self
+    }
+    
+    @objc func handleSettingsTapped(sender: UIBarButtonItem) {
+        let controller = SettingsVC()
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -106,19 +121,6 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    func rightNavButton(){
-
-        let frameSize = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 50, height: 30))
-        themeSwitch.frame = frameSize
-
-        themeSwitch.addTarget(self, action: #selector(didTap(switchView:)), for: .valueChanged)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: themeSwitch)
-    }
-    
-    @objc func didTap(switchView: UISwitch) {
-        themeManager.toggleTheme()
-    }
-    
 }
 
     //ViewModel Delegate
@@ -135,9 +137,9 @@ extension VideoListVC: VideoListViewModelDelegate {
 extension VideoListVC: Themeable {
     func apply(theme: Theme) {
         tableView.backgroundColor = theme.portalListBackgroundColor
+        settingsButton.setTitleColor(theme.textColor, for: .normal)
         
-        themeSwitch.onTintColor = theme.switchTintColor
-        themeSwitch.isOn = theme == .dark
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
