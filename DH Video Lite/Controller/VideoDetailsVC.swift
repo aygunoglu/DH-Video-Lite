@@ -256,6 +256,6 @@ extension VideoDetailsVC: OverlayViewDelegate, DownloadSettingsDelegate, Downloa
 
 extension VideoDetailsVC: Themeable {
     func apply(theme: Theme) {
-        tableView.backgroundColor = theme.portalListBackgroundColor
+        tableView.backgroundColor = theme.background
     }
 }

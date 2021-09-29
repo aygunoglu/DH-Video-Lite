@@ -106,8 +106,8 @@ class VideoCell: UITableViewCell {
 
 extension VideoCell: Themeable {
     func apply(theme: Theme) {
-        self.backgroundColor = theme.portalListBackgroundColor
-        self.containerView.backgroundColor = theme.tableViewCellBackgroundColor
+        self.backgroundColor = theme.background
+        self.containerView.backgroundColor = theme.portalCellBackground
     }
 }
 

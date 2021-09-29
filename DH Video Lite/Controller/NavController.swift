@@ -12,13 +12,15 @@ class NavController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         themeManager.register(observer: self)
-    
     }
+    
+
+    
     
 }
 
 extension NavController: Themeable {
     func apply(theme: Theme) {
-        UINavigationBar.appearance().barTintColor = theme.navbarBarTintColor
+
     }
 }

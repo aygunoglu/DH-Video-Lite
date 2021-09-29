@@ -16,41 +16,43 @@ struct Theme: Equatable {
         case dark
     }
     let type: Type
-
-    let portalListBackgroundColor: UIColor
+    let background: UIColor
     let textColor: UIColor
-    let descriptionTextColor: UIColor
-
     let separatorColor: UIColor
-    let tableViewCellBackgroundColor: UIColor
-    let settingsCellColor: UIColor
-    //let portalListCellContainerColor: UIColor
-
-    let navbarTintColor: UIColor
+    let portalCellBackground: UIColor
+    let navigationbarColor: UIColor
     let navbarStyle: UIBarStyle
-    let navbarBarTintColor: UIColor
     let navbarTitleAttrs: [NSAttributedString.Key : Any]
-
     let switchTintColor: UIColor
+    let orangeUI: UIColor
+    let statusBarStyle: UIStatusBarStyle
 
     init(type: Type, colors: ColorPalette) {
         self.type = type
-        self.portalListBackgroundColor = colors.portalListBackground
+        self.background = colors.background
         self.textColor = colors.textColor
-        self.descriptionTextColor = colors.secondary
-        self.separatorColor = colors.secondary
-        self.tableViewCellBackgroundColor = colors.tableViewCellBackgroundColor
-        self.navbarTintColor = colors.navBarTintColor
-        self.navbarStyle = type == .dark ? .black : .default
-        self.navbarBarTintColor = colors.navBarBarTintColor
+        self.separatorColor = colors.seperatorColor
+        self.portalCellBackground = colors.portalCellBackground
+        self.navbarStyle = colors.navbarStyle
+        self.navigationbarColor = colors.navigationbarColor
         self.switchTintColor = colors.switchTintColor
-        self.settingsCellColor = colors.settingsCellColor
         self.navbarTitleAttrs = type == .dark ? [NSAttributedString.Key.foregroundColor: UIColor.white] : [NSAttributedString.Key.foregroundColor: UIColor.black]
-        //if type == .dark { self.portalListCellContainerColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1) }
+        self.orangeUI = colors.orangeUI
+        self.statusBarStyle = colors.statusBarStyle
         
     }
 
     public static func == (lhs: Theme, rhs: Theme) -> Bool {
         return lhs.type == rhs.type
+    }
+}
+
+extension UIStatusBarStyle {
+    static var autoDarkContent: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
     }
 }

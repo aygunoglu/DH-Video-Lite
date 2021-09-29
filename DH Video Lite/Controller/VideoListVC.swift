@@ -47,7 +47,7 @@ class VideoListVC: UIViewController {
         view.addSubview(tableView)
 
         setTableViewDelegates()
-        tableView.backgroundColor = themeManager.theme.portalListBackgroundColor
+        tableView.backgroundColor = themeManager.theme.background
         tableView.pin(to: view)
         
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -65,6 +65,7 @@ class VideoListVC: UIViewController {
         tableView.dataSource = self
         videoListViewModel.delegate = self
     }
+
     
     @objc func handleSettingsTapped(sender: UIBarButtonItem) {
         let controller = SettingsVC()
@@ -87,12 +88,12 @@ extension VideoListVC: UITableViewDelegate, UITableViewDataSource {
         switch themeManager.theme.type {
         case .dark:
             cell.set(with: videoInfo)
-            cell.contentView.backgroundColor = themeManager.theme.portalListBackgroundColor
-            cell.containerView.backgroundColor = themeManager.theme.tableViewCellBackgroundColor
+            cell.contentView.backgroundColor = themeManager.theme.background
+            cell.containerView.backgroundColor = themeManager.theme.portalCellBackground
             cell.videoTitleLabel.textColor = .white
         case .light:
             cell.set(with: videoInfo)
-            cell.contentView.backgroundColor = themeManager.theme.portalListBackgroundColor
+            cell.contentView.backgroundColor = themeManager.theme.background
             
         }
         
@@ -136,9 +137,11 @@ extension VideoListVC: VideoListViewModelDelegate {
 
 extension VideoListVC: Themeable {
     func apply(theme: Theme) {
-        tableView.backgroundColor = theme.portalListBackgroundColor
+        tableView.backgroundColor = theme.background
         settingsButton.setTitleColor(theme.textColor, for: .normal)
         
+        navigationItem.scrollEdgeAppearance = GeneralAppearance.navigationbarAppearance()
+        navigationItem.standardAppearance = GeneralAppearance.navigationbarAppearance()
         
         DispatchQueue.main.async {
             self.tableView.reloadData()

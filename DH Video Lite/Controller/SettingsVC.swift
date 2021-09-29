@@ -21,10 +21,10 @@ class SettingsVC: UITableViewController {
         super.viewDidLoad()
         themeManager.register(observer: self)
         
-        tableView.backgroundColor = themeManager.theme.portalListBackgroundColor
+        tableView.backgroundColor = themeManager.theme.background
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
-
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -33,9 +33,9 @@ class SettingsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         cell.textLabel?.text = "Dark Mode"
-//        cell.textLabel?.textColor = themeManager.theme.type == .dark ? .white : .black
+        cell.textLabel?.textColor = themeManager.theme.type == .dark ? .white : .black
         cell.textLabel?.textColor = themeManager.theme.textColor
-        cell.backgroundColor = themeManager.theme.settingsCellColor
+        cell.backgroundColor = themeManager.theme.type == .dark ? .black : .white
         cell.accessoryView = darkModeSwitch
         return cell
     }
@@ -48,11 +48,14 @@ class SettingsVC: UITableViewController {
 
 extension SettingsVC: Themeable {
     func apply(theme: Theme) {
-        tableView.backgroundColor = theme.portalListBackgroundColor
+        tableView.backgroundColor = theme.background
         tableView.separatorColor = theme.separatorColor
         
         darkModeSwitch.onTintColor = theme.switchTintColor
         darkModeSwitch.isOn = theme == .dark
+        
+        navigationItem.scrollEdgeAppearance = GeneralAppearance.navigationbarAppearance()
+        navigationItem.standardAppearance = GeneralAppearance.navigationbarAppearance()
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
